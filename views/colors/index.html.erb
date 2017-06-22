@@ -1,0 +1,9 @@
+<%=
+  render "shared/crude/index",
+  resources: @resources,
+  resource_name: "Color",
+  resource_fields: controller.class.presentation_fields,
+  edit: true,
+  show: true,
+  destroy: true
+%>
