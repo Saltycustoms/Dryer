@@ -4,6 +4,8 @@
 2. Add CRUD actions
 ```
 class ResourcesController < ApplicationController
+  before_action :set_resource, only: [:show, :edit, :update, :destroy]
+
   def index
     @resources = resource_class.all.page(params[:page]).per(50)
   end
@@ -55,7 +57,6 @@ safe_constantize is a method that returns a Constant based on the string given. 
 3. Create a **Child** Controller that inherits from the **Parent** Controller.
 ```
 class ColorsController < ResourcesController
-  before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def create
     @resource = resource_class.new(resource_params)

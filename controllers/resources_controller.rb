@@ -1,4 +1,6 @@
 class ResourcesController < ApplicationController
+  before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  
   def index
     @resources = resource_class.all.page(params[:page]).per(50)
   end
